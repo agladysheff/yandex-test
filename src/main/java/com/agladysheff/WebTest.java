@@ -1,6 +1,7 @@
 package com.agladysheff;
 
 import io.qameta.allure.Step;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -8,8 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
+
 
 public class WebTest {
 
@@ -21,7 +21,7 @@ public class WebTest {
     private static final String PRODUCER_HIDE_XPATH = PRODUCER_TABLE_XPATH + "/div/button[contains(.,'Свернуть')]";
     private static final String PRODUCER_CONTROL_ELEMENT_XPATH = PRODUCER_TABLE_XPATH + "/div[@class='n-filter-block__list-items-wrap']/descendant::div[text()='A']";
     private static final String PRODUCER_INPUT_XPATH = PRODUCER_TABLE_XPATH + "/span/descendant::input";
-    private static final String APPLYFILTER_XPATH = "//button/span[text()='Применить']/parent::button";
+    private static final String APPLYFILTER_XPATH = "//span[text()='Применить']/parent::button";
     private static final String RESULT_CONTROLELEMENT_XPATH = "//div[1]/div/div[starts-with(@class, 'n-snippet-card2 ')][1]";
 
     private static final String RESULT_ELEMENTS_XPATH = "//div[starts-with(@class, 'n-snippet-card2 ')]";
@@ -63,6 +63,8 @@ public class WebTest {
     public WebTest selectProducer(String name) {
 
         showAllProducers();
+
+
         searchProducer(name);
         selectCheckboxWithName(name);
         clearSearchProducer();
@@ -79,7 +81,7 @@ public class WebTest {
     @Step()
     public WebTest equels12(int countResults) {
 
-        assertThat(countResults, is(12));
+        Assert.assertEquals (countResults, 12);
 
         return this;
     }
@@ -101,7 +103,7 @@ public class WebTest {
     @Step()
     public WebTest equelsName(String text) {
         String serchResult = getSerchResultName();
-        assertThat(serchResult, is(text));
+        Assert.assertEquals(serchResult, text);
         return this;
     }
 

@@ -126,7 +126,8 @@ public class WebTest {
 
     private void selectCheckboxWithName(String name) {
         WebElement checkbox = driver.findElement(By.xpath("//label[@class='checkbox__label'][contains(.,'" + name + "')]"));
-        if (!checkbox.isSelected() && checkbox.isDisplayed() && checkbox.isEnabled()) {
+
+
             WebElement elementForDie = this.driver.findElement(By.xpath(RESULT_CONTROLELEMENT_XPATH));
             checkbox.click();
 
@@ -135,7 +136,7 @@ public class WebTest {
             } catch (TimeoutException te) {
                 //not update
             }
-        }
+
 
     }
 
@@ -154,7 +155,7 @@ public class WebTest {
 
 
     public String getSerchResultName() {
-        return (new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(
+        return (new WebDriverWait(driver, 20)).until(ExpectedConditions.presenceOfElementLocated(
                 By.xpath(SEARCH_RESULT_NAME_XPATH))).getText();
     }
 

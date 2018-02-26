@@ -79,7 +79,7 @@ public class WebTest {
     }
 
     @Step()
-    public WebTest equels12(int countResults) {
+    public WebTest equalls12(int countResults) {
 
         Assert.assertEquals (countResults, 12);
 
@@ -101,7 +101,7 @@ public class WebTest {
 
 
     @Step()
-    public WebTest equelsName(String text) {
+    public WebTest equallsName(String text) {
         String serchResult = getSerchResultName();
         Assert.assertEquals(serchResult, text);
         return this;

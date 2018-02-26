@@ -51,11 +51,11 @@ public class TestYandex {
                 .applyFilters();
 
         int count = webTestNotebook.countResults();
-        webTestNotebook.equels12(count);
+        webTestNotebook.equalls12(count);
 
         String text = webTestNotebook.getFirstResultName();
         webTestNotebook.search(text)
-                .equelsName(text);
+                .equallsName(text);
     }
 
 
@@ -75,11 +75,11 @@ public class TestYandex {
                 .applyFilters();
 
         int count = webTestNotebook.countResults();
-        webTestNotebook.equels12(count);
+        webTestNotebook.equalls12(count);
 
         String text = webTestNotebook.getFirstResultName();
         webTestNotebook.search(text)
-                .equelsName(text);
+                .equallsName(text);
 
 
     }

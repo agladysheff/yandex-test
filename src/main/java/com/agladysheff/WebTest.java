@@ -118,7 +118,7 @@ public class WebTest {
         try {
             (new WebDriverWait(this.driver, 25)).until(ExpectedConditions.stalenessOf(controlElement));
         } catch (TimeoutException te) {
-            //not update
+
         }
 
     }
@@ -134,7 +134,7 @@ public class WebTest {
             try {
                 (new WebDriverWait(driver, 5)).until(ExpectedConditions.stalenessOf(elementForDie));
             } catch (TimeoutException te) {
-                //not update
+
             }
 
 

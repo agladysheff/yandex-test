@@ -3,12 +3,10 @@ package com.agladysheff.test;
 import com.agladysheff.WebTest;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.qameta.allure.junit4.DisplayName;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+
 
 import java.util.concurrent.TimeUnit;
 
@@ -29,6 +27,7 @@ public class TestYandex {
 
 
     @After
+
     public void quit() {
         if (driver != null) {
             driver.quit();
@@ -37,6 +36,7 @@ public class TestYandex {
 
 
     @Test
+
     @DisplayName("Test 1")
     public void test1() {
         WebTest webTestNotebook = new WebTest(driver);
@@ -48,10 +48,10 @@ public class TestYandex {
                 .fillPriceBounds("", "30000")
                 .selectProducer("HP")
                 .selectProducer("Lenovo")
-                .applyFilters();
+               ;
 
         int count = webTestNotebook.countResults();
-        webTestNotebook.equalls12(count);
+        webTestNotebook.equalls12(count,48);
 
         String text = webTestNotebook.getFirstResultName();
         webTestNotebook.search(text)
@@ -60,6 +60,7 @@ public class TestYandex {
 
 
     @Test
+
     @DisplayName("Test 2")
     public void test2() {
 
@@ -71,13 +72,13 @@ public class TestYandex {
                 .clickLinkTest("Планшеты")
                 .fillPriceBounds("20000", "25000")
                 .selectProducer("Acer")
-                .selectProducer("DELL")
-                .applyFilters();
+                .selectProducer("DELL");
 
-        int count = webTestNotebook.countResults();
-        webTestNotebook.equalls12(count);
 
-        String text = webTestNotebook.getFirstResultName();
+       int count = webTestNotebook.countResults();
+        webTestNotebook.equalls12(count,5);
+
+       String text = webTestNotebook.getFirstResultName();
         webTestNotebook.search(text)
                 .equallsName(text);
 
